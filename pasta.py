@@ -10,6 +10,8 @@ import argparse
 from pythonosc import osc_message_builder
 from pythonosc import udp_client
 
+playVideo = False
+
 def videoPaths(x):
     return {
        0: [globalVideoPath+"/01.mov", 78 ],
@@ -24,9 +26,7 @@ def videoPaths(x):
 
 def sensorCallback(channel):
   global playVideo
-  global counter
-  playVideo = False
-  th = 3
+  #playVideo = False
   #print("Counter#: "+str(counter))
   # Called if sensor output changes
   timestamp = time.time()
@@ -42,8 +42,8 @@ def sensorCallback(channel):
       playVideo = True
       counter = 0
       print("PlayVideo: True")
-    else:
-      print("Sensor LOW " + stamp)
+    #else:
+      #print("Sensor LOW " + stamp)
       #if counter == th:
       #  playVideo = True
       #  counter = 0
