@@ -14,14 +14,10 @@ playVideo = False
 
 def videoPaths(x):
     return {
-       0: [globalVideoPath+"/01.mov", 78 ],
-       1: [globalVideoPath+"/02.mov", 95 ],
-       2: [globalVideoPath+"/03.mov", 71 ],
-       3: [globalVideoPath+"/04.mov", 114 ],
-       4: [globalVideoPath+"/05.mov", 85 ],
-       5: [globalVideoPath+"/06.mov", 57 ],
-       6: [globalVideoPath+"/07.mov", 117 ],
-       7: [globalVideoPath+"/08.mov", 79 ],
+       0: [globalVideoPath+"/01.mov", 82 ],
+       1: [globalVideoPath+"/02.mov", 82 ],
+       #2: [globalVideoPath+"/03.mov", 55 ],
+       2: [globalVideoPath+"/04.mov", 74 ],
     }.get(x, [globalVideoPath+"/Loop_pasta.mov", 10 ])    # 9 is default if x not found
 
 def sensorCallback(channel):
@@ -98,7 +94,7 @@ try:
           client.send_message("/play", globalVideoPath+"/Loop_pasta.mov" )
           isPlaying = False
           playVideo = False
-          videoId = (videoId+1)%8
+          videoId = (videoId+1)%3
           path = videoPaths(videoId)
         #else:
           #print(timer)
